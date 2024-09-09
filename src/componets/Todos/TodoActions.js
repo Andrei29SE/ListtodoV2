@@ -1,9 +1,9 @@
 import Button from "../UI/Button"
 import { RiDeleteBin4Line, RiRefreshLine } from "react-icons/ri"
-function TodoActions(){
+function TodoActions({deliteComplitedTask,resetTask}){
     return <>
-    <Button title="Reset tasks"><RiDeleteBin4Line/></Button>
-    <Button title="Clear all tasks"><RiRefreshLine/></Button>    
+    <Button onClick={deliteComplitedTask} title="Reset tasks"><RiDeleteBin4Line/></Button>
+    <Button onClick={resetTask} title="Clear all tasks"><RiRefreshLine/></Button>    
     </>
     
 }

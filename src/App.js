@@ -26,11 +26,17 @@ function togleTaskHandler(id){
   }))
 
 }
+function deleteComplitedTaskHandler(){
+  setTasks(tasks.filter((task)=> !task.isComplited ))
+}
+function resetTaskHandler(){
+  setTasks([])
+}
   return (
     <div className="App">
       <h1>App for your tasks managment</h1>
      <TodoForm addTask={addTaskHandler}/>
-     <TodoActions/>
+     <TodoActions deliteComplitedTask={deleteComplitedTaskHandler} resetTask={resetTaskHandler}/>
      <TodoList togletask={togleTaskHandler} deliteTask={deliteTaskHandler}
      tasks={tasks}/>
     </div>
