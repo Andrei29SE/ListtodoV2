@@ -15,8 +15,8 @@ function addTaskHandler(text){
   }
   setTasks([...tasks,newTodo])
 }
-function deliteTaskHandler(index){
-  setTasks(tasks.filter((_,ind) => ind!==index))
+function deliteTaskHandler(id){
+  setTasks(tasks.filter((task) => task.id!==id))
 
 }
   return (
