@@ -32,11 +32,16 @@ function deleteComplitedTaskHandler(){
 function resetTaskHandler(){
   setTasks([])
 }
+const taskCount = tasks.filter((task)=> task.isComplited).length
+console.log(taskCount)
   return (
     <div className="App">
       <h1>App for your tasks managment</h1>
      <TodoForm addTask={addTaskHandler}/>
-     <TodoActions deliteComplitedTask={deleteComplitedTaskHandler} resetTask={resetTaskHandler}/>
+     {tasks.length>0 && <TodoActions 
+     deliteComplitedTask={deleteComplitedTaskHandler} 
+     resetTask={resetTaskHandler}
+     countTask={!!taskCount}/>}
      <TodoList togletask={togleTaskHandler} deliteTask={deliteTaskHandler}
      tasks={tasks}/>
     </div>
