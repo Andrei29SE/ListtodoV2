@@ -1,4 +1,5 @@
 import './App.css';
+import TodoActions from './componets/Todos/TodoActions';
 import TodoForm from './componets/Todos/TodoForm';
 import TodoList from './componets/Todos/TodoList';
 import { useState } from 'react';
@@ -29,6 +30,7 @@ function togleTaskHandler(id){
     <div className="App">
       <h1>App for your tasks managment</h1>
      <TodoForm addTask={addTaskHandler}/>
+     <TodoActions/>
      <TodoList togletask={togleTaskHandler} deliteTask={deliteTaskHandler}
      tasks={tasks}/>
     </div>
