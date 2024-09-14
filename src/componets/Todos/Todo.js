@@ -1,14 +1,11 @@
-import { FaCheck } from 'react-icons/fa6';
 import styles from './Todo.module.css'
-import { RiBriefcase4Fill, RiDeleteBin3Line } from "react-icons/ri";
+import { RiBriefcase4Fill } from "react-icons/ri";
 
-function Todo({task, deliteTask,togletask}){
+function Todo({task, deliteTask,index}){
     return (
-    <div className={`${styles.todo} ${task.isComplited ? styles.completedTodo :'' }`}>
+    <div onDoubleClick={()=>deliteTask(index)} className={styles.todo}>
     <RiBriefcase4Fill className={styles.todoIcon}/>
-    <h1 className={styles.todoText}>{task.text}</h1>
-    <RiDeleteBin3Line onClick={()=>deliteTask(task.id)} className={styles.deleteIcon}/>
-    <FaCheck onClick={()=>togletask(task.id)} className={styles.checkIcon}/>
+    <h1 className={styles.todoText}>{task}</h1>
     </div>)
 }
 export default Todo
