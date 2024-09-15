@@ -19,11 +19,17 @@ function deliteTaskHandler(index){
   setTasks(tasks.filter((_,ind) => ind!==index))
 
 }
+function togleTaskHandler(id){
+  setTasks(tasks.map((task)=>{
+    return task.id===id? {...task, isComplited: !task.isComplited}:{...task}
+  }))
+
+}
   return (
     <div className="App">
       <h1>App for your tasks managment</h1>
      <TodoForm addTask={addTaskHandler}/>
-     <TodoList deliteTask={deliteTaskHandler}
+     <TodoList togletask={togleTaskHandler} deliteTask={deliteTaskHandler}
      tasks={tasks}/>
     </div>
   );
