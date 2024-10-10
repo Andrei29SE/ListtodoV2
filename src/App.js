@@ -1,5 +1,4 @@
 import './App.css';
-import TodoActions from './componets/Todos/TodoActions';
 import TodoForm from './componets/Todos/TodoForm';
 import TodoList from './componets/Todos/TodoList';
 import { useState } from 'react';
@@ -16,8 +15,8 @@ function addTaskHandler(text){
   }
   setTasks([...tasks,newTodo])
 }
-function deliteTaskHandler(id){
-  setTasks(tasks.filter((task) => task.id!==id))
+function deliteTaskHandler(index){
+  setTasks(tasks.filter((_,ind) => ind!==index))
 
 }
 function togleTaskHandler(id){
@@ -26,23 +25,11 @@ function togleTaskHandler(id){
   }))
 
 }
-function deleteComplitedTaskHandler(){
-  setTasks(tasks.filter((task)=> !task.isComplited ))
-}
-function resetTaskHandler(){
-  setTasks([])
-}
-const taskCount = tasks.filter((task)=> task.isComplited).length
-
   return (
     <div className="App">
       <h1>App for your tasks managment</h1>
      <TodoForm addTask={addTaskHandler}/>
-     {tasks.length>0 && <TodoActions 
-     deliteComplitedTask={deleteComplitedTaskHandler} 
-     resetTask={resetTaskHandler}
-     countTask={!!taskCount}/>}
-     <TodoList count={taskCount} counter={taskCount} togletask={togleTaskHandler} deliteTask={deliteTaskHandler}
+     <TodoList togletask={togleTaskHandler} deliteTask={deliteTaskHandler}
      tasks={tasks}/>
     </div>
   );
